@@ -14,5 +14,5 @@ Movies web application written on Ruby on Rails
     rails s
    ```
    
-### Installation
+### Resources
 * [Template](https://github.com/lazaronixon/the_construct)
