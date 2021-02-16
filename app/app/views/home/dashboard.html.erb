@@ -1,0 +1,73 @@
+<section class="section">
+  <div class="section-header d-mobile-none">
+    <h1>Home</h1>
+  </div>
+  <div class="row">
+    <div class="col-lg-8 col-md-12 col-12 col-sm-12">
+      <div class="card">
+        <div class="card-header">
+          <h4>Top movies (database)</h4>
+        </div>
+        <div class="card-body p-0">
+          <div class="table-responsive">
+            <table class="table table-striped table-md">
+              <tbody>
+                <% index = 1 %>
+                <% @top_movies.each do |m| %>
+                  <tr>
+                    <td><%= index %></td>
+                    <td><%= m["Title"] %></td>
+                    <td><%= m["Year"] %></td>
+                    <td>
+                      <div class="badge badge-light"><%= m["imdbRating"] %></div>
+                    </td>
+                    <td><a href="/description?id=<%= m["id_film"] %>" class="btn btn-info">See more</a></td>
+                  </tr>
+                  <% index += 1 %>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <h4>Recommendation for you</h4>
+        </div>
+        <div class="card-body">
+          <ul class="list-unstyled list-unstyled-border">
+            <li class="media">
+              <img class="mr-3" src="<%= @recommended_movie[0]["Poster"] %>" alt="avatar" width="50">
+              <div class="media-body">
+                <div class="float-right text-primary"><a  href="/description?id=<%= @recommended_movie[0]["id_film"] %>">See more</a></div>
+                <div class="media-title"><%= @recommended_movie[0]["Title"] %></div>
+                <span class="text-small text-muted"><%= @recommended_movie[0]["Plot"] %></span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-12 col-12 col-sm-12">
+      <div class="card">
+        <div class="card-header">
+          <h4>Recent movies</h4>
+        </div>
+        <div class="card-body">
+          <ul class="list-unstyled list-unstyled-border">
+            <% @recent_movies.each do |m| %>
+              <li class="media">
+                <img class="mr-3" src="<%= m["Poster"] %>" alt="avatar" width="50">
+                <div class="media-body">
+                  <div class="float-right text-primary"><a  href="/description?id=<%= m["id_film"] %>">See more</a></div>
+                  <div class="media-title"><%= m["Title"] %></div>
+                  <span class="text-small text-muted"><%= m["Plot"] %></span>
+                </div>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

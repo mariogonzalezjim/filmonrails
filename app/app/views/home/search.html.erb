@@ -1,0 +1,55 @@
+<section class="section">
+  <div class="section-header d-mobile-none">
+    <h1>Results for  <i>'<%= @result %>'</i> </h1>
+  </div>
+</section>
+<div class="col-md-12 col-md-pull-3">
+  <div class="col-md-4 rounded">
+    <%= form_for @year, url: { action: "search_film_year" } do |f| %>
+      <%= f.text_field :year, placeholder: "Year", class: "form-control", style:'width:40%;background-color: #d7e3e8;' %>
+      <%= f.hidden_field :name, value: @result %>
+      <button class="btn btn-info" type="submit">Filter by year</button>
+    <% end %>
+  </div>
+  <p class="search-results-count">About <%= @total_results %> results (Page <%= @page %>/<%= @total_pages %>)</p>
+  <% @array_films.each do |f| %>
+    <section class="search-result-item">
+      <a class="image-link" href="/description?id=<%= f["imdbID"] %>"><img class="image" src="<% if f["Poster"] == "N/A" %>/images/no-image.png <% else %> <%= f["Poster"] %><% end %>" width="60%" >
+      </a>
+      <div class="search-result-item-body">
+        <div class="row">
+          <div class="col-sm-9">
+            <h4 class="search-result-item-heading"><a href="/description?id=<%= f["imdbID"] %>"><%= f["Title"] %></a></h4>
+            <p class="info"><%= f["Year"] %></p>
+          </div>
+          <div class="col-sm-3 text-align-center">
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <a class="btn btn-primary btn-info btn-sm" href="/description?id=<%= f["imdbID"] %>">See More</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  <%end %>
+</div>
+<br>
+<nav aria-label="Page navigation example">
+  <ul class="pagination">
+    <% if Integer(@page) > 1 %>
+      <li class="page-item"><a class="page-link" href="/search?name=<%= @result %>&page=<%= Integer(@page) -1 %>">Previous</a></li>
+    <% end %>
+    <li class="page-item active"><a class="page-link" href="/search?name=<%= @result %>&page=<%= @page %>"><%= @page %></a></li>
+    <% if (Integer(@page) + 1) <= Integer(@total_pages) %>
+      <li class="page-item"><a class="page-link" href="/search?name=<%= @result %>&page=<%= Integer(@page)+1 %>"><%= Integer(@page) + 1  %></a></li>
+    <% end %>
+    <% if (Integer(@page) +2) <= Integer(@total_pages) %>
+      <li class="page-item"><a class="page-link" href="/search?name=<%= @result %>&page=<%= Integer(@page) +2 %>"><%= Integer(@page) + 2 %></a></li>
+    <% end %>
+    <% if Integer(@page) < Integer(@total_pages) %>
+      <li class="page-item"><a class="page-link" href="/search?name=<%= @result %>&page=<%= Integer(@page) +1 %>">Next</a></li>
+    <% end %>
+  </ul>
+</nav>

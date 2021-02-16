@@ -1,0 +1,22 @@
+<div class="main-sidebar sidebar-style-2">
+  <aside id="sidebar-wrapper">
+    <div class="sidebar-brand">
+      <%= link_to 'Film on Rails', root_path  %>
+    </div>
+    <div class="sidebar-brand sidebar-brand-sm">
+      <%= link_to 'FoR', root_path %>
+    </div>
+    <ul class="sidebar-menu" data-controller="sidebar">
+      <li class="<%= active_nav_item('home', 'dashboard') %>">
+        <%= link_to root_path, class: "nav-link" do %>
+          <i class="fas fa-fire"></i> <span>Dashboard</span>
+        <% end %>
+      </li>
+      <li class="<%= active_nav_item('home', 'historical') %>">
+        <%= link_to '/historical', class: "nav-link" do %>
+          <i class="fas fa-file-alt"></i> <span>Historical</span>
+        <% end %>
+      </li>
+    </ul>
+  </aside>
+</div>

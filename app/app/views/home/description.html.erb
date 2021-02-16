@@ -1,0 +1,32 @@
+<section class="section">
+  <div class="section-header d-mobile-none">
+    <a class=" btn-sm" href="javascript:history.back()"><h1><i class="fas fa-arrow-left" style="font-size:20px;"></i> Back</h1> </a>
+  </div>
+  <section class="search-result-item">
+    <img class="image image-link" src="<% if @data["Poster"] == "N/A" %>/images/no-image.png <% else %> <%= @data["Poster"] %><% end %>">
+    <div class="search-result-item-body">
+      <div class="row">
+        <div class="col-sm-9">
+          <h4 class="search-result-item-heading"><%= @data["Title"] %></h4>
+          <p class="info"> <%= @data["Country"] %>, <%= @data["Released"] %> <br>
+            <b>Director:</b> <%= @data["Director"] %><br>
+            <b>Writer:</b> <%= @data["Writer"] %><br>
+            <b>Actors:</b> <%= @data["Actors"] %><br>
+          </p>
+          <p class="info"></p>
+          <p class="description"><%= @data["Plot"] %></p>
+          <div class="score">
+            <span class="score-rating js-score"><%= @data["imdbRating"] %></span>
+            <span>/</span>
+            <span class="total">10</span>
+            <p>imdb</p>
+          </div>
+        </div>
+        <div class="col-sm-3 text-align-center">
+          <p class="fs-mini text-muted"><b>Genre:</b> <%= @data["Genre"] %></p>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+</section>

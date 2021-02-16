@@ -1,0 +1,23 @@
+<section class="section">
+  <div class="title-index">
+    <h1>Films on rails</h1>
+  </div>
+  <div class="card title-content">
+    <div class="formContent">
+      <center>
+        <h3>Login</h3>
+      </center>
+      <div class="error-form" >
+        <%= @error %>
+      </div>
+      <%= form_for @user, url: { action: "login" } do |f| %>
+        <%= f.text_field :email, placeholder: "Email", :required => true, :pattern => '[^@]+@[^@]+\.[a-zA-Z]{2,6}' %>
+        <%= f.password_field :password, placeholder: "Password", :required => true %>
+        <%= f.submit "Login" %>
+      <% end %>
+      <div class="formFooter">
+        <a class="underlineHover" href="new">Create new account</a>
+      </div>
+    </div>
+  </div>
+</section>
