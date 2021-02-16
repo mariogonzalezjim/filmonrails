@@ -10,6 +10,6 @@ Movies web application written on Ruby on Rails
 ```sh
    bundle
    ```
-   ```sh
-   rails s
+ ```sh
+    rails s
    ```
