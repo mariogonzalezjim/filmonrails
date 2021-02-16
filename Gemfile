@@ -68,5 +68,4 @@ group :production do
   gem 'sidekiq'
   gem 'rack-ratelimit'
   gem 'rack-timeout'
-  gem 'pg'
 end
