@@ -27,7 +27,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'rest-client'
 gem 'will_paginate'
 gem 'pg'
-gem 'bootsnap', '>= 1.4.4', require: false
+gem 'bootsnap', '>= 1.4.4', require: true
 
 
 # Reduces boot times through caching; required in config/boot.rb
