@@ -27,6 +27,8 @@ gem 'jbuilder', '~> 2.7'
 gem 'rest-client'
 gem 'will_paginate'
 gem 'pg'
+gem 'bootsnap', '>= 1.4.4', require: false
+
 
 # Reduces boot times through caching; required in config/boot.rb
 
@@ -44,7 +46,6 @@ group :development do
   gem 'listen', '~> 3.3'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
-  gem 'bootsnap', '>= 1.4.4', require: false
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3', '~> 1.4'
 end
@@ -69,5 +70,4 @@ group :production do
   gem 'sidekiq'
   gem 'rack-ratelimit'
   gem 'rack-timeout'
-  gem 'pg'
 end
