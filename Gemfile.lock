@@ -127,6 +127,7 @@ GEM
     nio4r (2.5.5)
     nokogiri (1.11.1-x86_64-linux)
       racc (~> 1.4)
+    pg (1.2.3)
     platform_agent (1.0.1)
       activesupport (>= 5.2.0)
       useragent (~> 0.16.3)
@@ -261,6 +262,7 @@ DEPENDENCIES
   geared_pagination
   jbuilder (~> 2.7)
   listen (~> 3.3)
+  pg
   platform_agent
   puma (~> 5.0)
   rack-ratelimit
